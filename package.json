@@ -1,0 +1,16 @@
+{
+  "name": "hack",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kjgorman",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "express": "^4.8.8",
+    "xero": "0.0.5"
+  }
+}
