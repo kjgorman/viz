@@ -15,14 +15,14 @@
     }
 
     function query () {
-        var _cache = null
+        var _cache = {}
         return function (qs, callback) {
-            if (_cache) return callback(null, _cache)
+            if (_cache[qs]) return callback(null, _cache[qs])
 
             _instance.call('GET', '/'+qs, null, function (err, res) {
                 if (err) { console.log(err), callback(err) }
 
-                _cache = res
+                _cache[qs] = res
 
                 callback(null, res)
             })
