@@ -7,10 +7,10 @@
             res.sendFile("views/index.html", { root : __dirname + "/../" })
         })
 
-        app.get("/invoices", function (req, res) {
-            xero.invoices(function (err, invoices) {
+        app.get(/query\/(.+)/, function (req, res) {
+            xero.query(req.params[0], function (err, results) {
                 if (err) res.status(500).send("welp")
-                res.send(invoices)
+                res.send(results)
             })
         })
     }

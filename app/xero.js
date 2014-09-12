@@ -14,12 +14,12 @@
         return new Xero(key, secret, privateKey)
     }
 
-    function invoices () {
+    function query () {
         var _cache = null
-        return function (callback) {
+        return function (qs, callback) {
             if (_cache) return callback(null, _cache)
 
-            _instance.call('GET', '/Invoice', null, function (err, res) {
+            _instance.call('GET', '/'+qs, null, function (err, res) {
                 if (err) { console.log(err), callback(err) }
 
                 _cache = res
@@ -29,5 +29,7 @@
         }
     }
 
-    module.exports = { invoices : invoices() }
+    module.exports = {
+        query    : query()
+    }
 }()

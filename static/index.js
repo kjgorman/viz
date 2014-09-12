@@ -1,4 +1,4 @@
-/jshint asi:true, expr:true */
+/*jshint asi:true, expr:true, laxcomma:true */
 +function () {
     'use strict';
 
@@ -10,7 +10,7 @@
     var test = [{ Date: new Date("09/01/2014"), Total: "100", AmountPaid : "50" }
                 , { Date: new Date("09/14/2014"), Total: "150", AmountPaid : "50" }]
 
-    $.get('/invoices', function (res) {
+    $.get('/query/invoices', function (res) {
         var invoices   = res.Response.Invoices.Invoice
           , receivable = sales(invoices)
           , payable    = sales(invoices)
